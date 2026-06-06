@@ -1,70 +1,58 @@
-# Okta React + Custom Login Example
+# Okta React Custom Login Exploration
 
-This example shows you how to use the [Okta React Library][] and [React Router](https://github.com/ReactTraining/react-router) to login a user to a React application.  The login is achieved with the [Okta Sign In Widget][], which gives you more control to customize the login experience within your app.
+This repo is a React-based authentication exploration using Okta's React SDK, Okta Auth JS, and the Okta Sign-In Widget. It demonstrates how a single-page React application can support a custom embedded login experience with Okta-backed OIDC authentication.
 
-This example is built with [Create React App][].
+## Overview
 
-## Prerequisites
+Authentication products are easiest to understand when implemented in a working app. This project explores a custom-login pattern where the application owns more of the login UX while relying on Okta for identity, token issuance, and session handling.
 
-Before running this sample, you will need the following:
+## What it demonstrates
 
-* An Okta Developer Account, you can sign up for one at https://developer.okta.com/signup/.
-* An Okta Application, configured for Single-Page App (SPA) mode. This is done from the Okta Developer Console, you can see the [OIDC SPA Setup Instructions][].  When following the wizard, use the default properties.  They are are designed to work with our sample applications.
+- React single-page app authentication
+- Okta React SDK integration
+- Okta Auth JS usage
+- Okta Sign-In Widget customization
+- React Router-based protected navigation patterns
+- Environment-based OIDC configuration
+- Developer-facing identity integration workflow
 
-## Running This Example
+## Tech stack
 
-To run this application, you first need to clone this repo:
+- React 17
+- Create React App
+- Okta React SDK
+- Okta Auth JS
+- Okta Sign-In Widget
+- React Router
+- Semantic UI React
+- dotenv
+- ESLint / Airbnb config
 
-```bash
-git clone https://github.com/okta/samples-js-react.git
-```
+## Product framing
 
-Then install dependencies:
+The product value of this project is understanding how much control developers can have over authentication UX while still delegating security-sensitive identity functions to a platform provider.
+
+It is relevant for product work involving:
+
+- Embedded login
+- Hosted vs custom authentication UX
+- Developer experience for identity integrations
+- OAuth/OIDC setup flows
+- Frontend authentication patterns
+
+## Running locally
 
 ```bash
 npm install
-```
-Enter into custom-login directory:
-```bash
-cd samples-js-react/custom-login
-```
-Now you need to gather the following information from the Okta Developer Console:
-
-- **Client Id** - The client ID of the SPA application that you created earlier. This can be found on the "General" tab of an application, or the list of applications.  This identifies the application that tokens will be minted for.
-- **Issuer** - This is the URL of the authorization server that will perform authentication.  All Developer Accounts have a "default" authorization server.  The issuer is a combination of your Org URL (found in the upper right of the console home page) and `/oauth2/default`. For example, `https://dev-1234.oktapreview.com/oauth2/default`.
-
-These values must exist as environment variables. They can be exported in the shell, or saved in a file named `testenv`, at the root of this repository. (This is the parent directory, relative to this README) See [dotenv](https://www.npmjs.com/package/dotenv) for more details on this file format.
-
-```ini
-ISSUER=https://yourOktaDomain.com/oauth2/default
-CLIENT_ID=123xxxxx123
-```
-
-With variables set, start the app server:
-
-```
 npm start
 ```
-You could also start the app server from root directory like:
 
-```
-npm run custom-login-server
-```
+The app expects Okta/OIDC configuration through environment variables such as issuer and client ID.
 
-Now navigate to http://localhost:8080 in your browser.
+## Portfolio positioning
 
-If you see a home page that prompts you to login, then things are working!  Clicking the **Log in** button will render a custom login page component that uses the Okta Sign-In Widget to perform authentication.
+This should be presented as an identity integration exploration, not as a standalone product. It supports the broader story that I understand both the PM and implementation sides of authentication systems.
 
-You can login with the same account that you created when signing up for your Developer Org, or you can use a known username and password from your Okta Directory.
+## Status
 
-**Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
-
-## Integrating The Resource Server
-
-This sample contains the same "Messages" page that is included in the [Okta Hosted Login](/okta-hosted-login) sample, please refer to that sample for instructions on setting up the resource server.
-
-[Create React App]: https://create-react-app.dev
-[Okta React Library]: https://github.com/okta/okta-react
-[OIDC SPA Setup Instructions]: https://developer.okta.com/docs/guides/sign-into-spa/react/before-you-begin
-[PKCE Flow]: https://developer.okta.com/docs/guides/implement-auth-code-pkce
-[Okta Sign In Widget]: https://github.com/okta/okta-signin-widget
+Authentication sample/exploration. Useful as supporting evidence for identity-platform experience.
